@@ -22,6 +22,7 @@ function search() {
         type: 'video',
         order: 'date',
         maxResults:	'10',
+        videoEmbeddable:true,
 
      });
     
