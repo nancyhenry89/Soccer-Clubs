@@ -15,11 +15,9 @@ function search() {
     gapi.client.setApiKey(apiKey);
     gapi.client.load('youtube', 'v3', function() {
         isLoad = true;
-    }); 
-	console.log('Search Request');
-	
+    }); 	
     request = gapi.client.youtube.search.list({
-				q: 'q',
+				q: q,
         part: 'id, snippet',
         type: 'video',
         order: 'date',
