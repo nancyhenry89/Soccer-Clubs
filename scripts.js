@@ -29,20 +29,20 @@ function search() {
   request.execute(function(response) {
     var str = response.result;
     sessionStorage.setItem('currentVid', str.items[0].id.videoId);
-    initVid();
+    
   });
-      // 2. This code loads the IFrame Player API code asynchronously.
-      var tag = document.createElement('script');
-
-      tag.src = "https://www.youtube.com/iframe_api";
-      var firstScriptTag = document.getElementsByTagName('script')[0];
-      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+  initVid();
 } 
 
 
 
 function initVid(){
+    // 2. This code loads the IFrame Player API code asynchronously.
+      var tag = document.createElement('script');
 
+      tag.src = "https://www.youtube.com/iframe_api";
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
       // 3. This function creates an <iframe> (and YouTube player)
       //    after the API code downloads.
       var player;
@@ -81,6 +81,7 @@ function initVid(){
 }
 
 $(document).ready(function(){
+  initVid();
   $('.teamList a').click(function(){
       sessionStorage.setItem('currentTeam', $(this).text());
       $('.teamList').hide();
