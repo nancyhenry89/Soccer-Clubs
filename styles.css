@@ -1,0 +1,27 @@
+.bg{
+    background: url(img/bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.main {
+    background: rgba(255,255,255,0.9);
+    height: 100%;
+    margin-top: 20px;
+    border-radius: 20px;
+}
+
+h1 {
+    font-size: 36px;
+    text-align: center;
+    color: #e49600!important;}
+
+.teamList {
+    margin: 20px;
+    font-size: 19px;
+    color: #e49600;
+}
+
+.teamList a {
+    color: #000224;
+}

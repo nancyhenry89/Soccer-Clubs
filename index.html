@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Team Listing</title>
+        <link rel="stylesheet" type="text/css" href="styles.css">
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>     
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+          <script src="scripts.js"></script>  
+    </head>
+    <body class="bg">
+                    <h1>European Soccer Club's matches</h1>
+        <div class="container main">
+
+            <div class="teamList">
+                <li><a id="barcelona">Barcelona</a></li>
+                 <li><a id="RealMadrid">Real Madrid<a></li>
+Manchester United
+Manchester City
+CHELSEA
+Juventus
+Internazionale Milano
+Bayern München
+Borussia Dortmund
+Paris Saint-Germain
+PSV
+
+            </div>
+            <div id="buttons">
+      <label> <input id="query" value='cats' type="text"/><button id="search-button" enabled onclick="search()">Search</button></label>
+    </div>
+    <div id="search-container">
+    </div>
+        </div>
+
+   
+    </body>
+     <script src="https://apis.google.com/js/client.js?onload=googleApiClientReady"></script>
+</html>
