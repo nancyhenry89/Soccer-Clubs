@@ -10,7 +10,7 @@ function search() {
 
 	console.log('Search Started');
   var apiKey = 'AIzaSyCr7L91URLBfmHfXeUiKPnUbmL0s9gikSY';
-	var q = 'European Soccer '+sessionStorage.getItem('currentTeam');;
+	var q = 'European Soccer '+sessionStorage.getItem('currentTeam');
 	$('#currentTeam').text(q)
     gapi.client.setApiKey(apiKey);
     gapi.client.load('youtube', 'v3', function() {
@@ -28,6 +28,7 @@ function search() {
 
   request.execute(function(response) {
     var str = JSON.stringify(response.result);
+    sessionStorage.setItem('currentVid', str.items(0).id.videoId);
     $('#search-container').html('<pre>' + str + '</pre>');
   });
 } 
@@ -44,10 +45,11 @@ function search() {
       //    after the API code downloads.
       var player;
       function onYouTubeIframeAPIReady() {
+        currentVid=sessionStorage.getItem('currentVid');
         player = new YT.Player('player', {
           height: '390',
           width: '640',
-          videoId: 'M7lc1UVf-VE',
+          videoId: currentVid,
           events: {
             'onReady': onPlayerReady,
             'onStateChange': onPlayerStateChange
@@ -78,7 +80,7 @@ function search() {
 $(document).ready(function(){
   $('.teamList a').click(function(){
       sessionStorage.setItem('currentTeam', $(this).text());
-            $('.teamList').hide();
+      $('.teamList').hide();
       $('.matchList').show();
       search();
   });
