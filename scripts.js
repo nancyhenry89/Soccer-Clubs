@@ -27,7 +27,7 @@ function search() {
     
 
   request.execute(function(response) {
-    var str = JSON.stringify(response.result);
+    var str = response.result;
     sessionStorage.setItem('currentVid', str.items(0).id.videoId);
     $('#search-container').html('<pre>' + str + '</pre>');
   });
