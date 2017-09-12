@@ -31,7 +31,7 @@ function search() {
     var str = response.result;
     sessionStorage.setItem('currentVid', str.items[0].id.videoId);
   });
-  
+  changeVidId()
 } 
 
 function changeVidId(){
