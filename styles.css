@@ -36,3 +36,6 @@ h1 {
 }
 .none{display: none}
 #currentTeam{color:#e49600}
+#player {
+    max-width: 100%;
+}
