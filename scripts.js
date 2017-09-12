@@ -8,7 +8,7 @@ function search() {
 
 	console.log('Search Started');
   var apiKey = 'AIzaSyCr7L91URLBfmHfXeUiKPnUbmL0s9gikSY';
-	var q = $('#query').val();
+	var q = 'European Soccer '+$('#query').val();
 	
     gapi.client.setApiKey(apiKey);
     gapi.client.load('youtube', 'v3', function() {
@@ -20,7 +20,9 @@ function search() {
 				q: 'q',
         part: 'id, snippet',
         type: 'video',
-        order: 'date'
+        order: 'date',
+        maxResults:	'10',
+
      });
     
 
