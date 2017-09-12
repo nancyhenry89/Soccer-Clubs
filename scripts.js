@@ -29,15 +29,13 @@ function search() {
   request.execute(function(response) {
     var str = response.result;
     sessionStorage.setItem('currentVid', str.items[0].id.videoId);
-    
   });
-  initVid();
+  onYouTubeIframeAPIReady()
 } 
 
 
 
-function initVid(){
-    // 2. This code loads the IFrame Player API code asynchronously.
+  // 2. This code loads the IFrame Player API code asynchronously.
       var tag = document.createElement('script');
 
       tag.src = "https://www.youtube.com/iframe_api";
@@ -78,16 +76,13 @@ function initVid(){
         player.stopVideo();
       }
 
-}
 
 $(document).ready(function(){
-  initVid();
   $('.teamList a').click(function(){
       sessionStorage.setItem('currentTeam', $(this).text());
       $('.teamList').hide();
       $('.matchList').show();
       search();
-      
   });
   $('#back').click(function(){
       $('.matchList').hide();
