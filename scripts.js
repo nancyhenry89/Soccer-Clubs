@@ -31,17 +31,18 @@ function search() {
     sessionStorage.setItem('currentVid', str.items[0].id.videoId);
     initVid();
   });
-} 
-
-
-
-function initVid(){
-    // 2. This code loads the IFrame Player API code asynchronously.
+      // 2. This code loads the IFrame Player API code asynchronously.
       var tag = document.createElement('script');
 
       tag.src = "https://www.youtube.com/iframe_api";
       var firstScriptTag = document.getElementsByTagName('script')[0];
       firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+} 
+
+
+
+function initVid(){
+
       // 3. This function creates an <iframe> (and YouTube player)
       //    after the API code downloads.
       var player;
