@@ -3,12 +3,20 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    height: 100%;
+    padding: 15px;
 }
 .main {
     background: rgba(255,255,255,0.9);
     height: 100%;
     margin-top: 20px;
     border-radius: 20px;
+    min-height: 500px;
+}
+
+.matchList {
+    color: red;
+    padding: 20px;
 }
 
 h1 {
@@ -21,7 +29,5 @@ h1 {
     font-size: 19px;
     color: #e49600;
 }
-
-.teamList a {
-    color: #000224;
-}
+.none{display: none}
+#currentTeam{color:#e49600}
