@@ -86,6 +86,6 @@ $(document).ready(function(){
       sessionStorage.setItem('currentTeam', $(this).text());
      // window.location.href = './matchList.html';
   });
-  search();
+
 
 });
