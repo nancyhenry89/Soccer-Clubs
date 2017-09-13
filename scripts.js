@@ -90,6 +90,7 @@ $(document).ready(function(){
     $('.teamList a').click(function(){
       sessionStorage.setItem('currentTeam', $(this).text());
        search();
+       window.location.href = './matchList.html';
 
   });
    
