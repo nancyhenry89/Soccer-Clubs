@@ -88,9 +88,10 @@ $(document).ready(function(){
   $('#currentTeam').text(sessionStorage.getItem('currentTeam'));
 
     $('.teamList a').click(function(){
-
       sessionStorage.setItem('currentTeam', $(this).text());
+       search();
+
   });
-    search();
+   
 
 });
