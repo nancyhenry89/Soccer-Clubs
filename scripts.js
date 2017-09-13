@@ -32,7 +32,8 @@ function search() {
     for (i=0;i<10;i++){
        sessionStorage.setItem('videoID'+i, str.items[i].id.videoId);
     }
-      changeVidId()
+      changeVidId();
+       window.location.href = './matchList.html';
   });
 
 } 
@@ -90,7 +91,7 @@ $(document).ready(function(){
     $('.teamList a').click(function(){
       sessionStorage.setItem('currentTeam', $(this).text());
        search();
-       window.location.href = './matchList.html';
+      
 
   });
    
