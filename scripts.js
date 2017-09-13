@@ -29,6 +29,9 @@ function search() {
   request.execute(function(response) {
     var str = response.result;
     sessionStorage.setItem('currentVid', str.items[0].id.videoId);
+    for (i=0;i<10;i++){
+       sessionStorage.setItem('videoID'+i, str.items[i].id.videoId);
+    }
       changeVidId()
   });
 
@@ -86,6 +89,6 @@ $(document).ready(function(){
       sessionStorage.setItem('currentTeam', $(this).text());
      // window.location.href = './matchList.html';
   });
-
+  search();
 
 });
