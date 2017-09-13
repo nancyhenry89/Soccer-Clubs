@@ -84,13 +84,13 @@ function changeVidId(){
 $(document).ready(function(){
   $('.teamList a').click(function(){
       sessionStorage.setItem('currentTeam', $(this).text());
-      $('.teamList').hide();
-      $('.matchList').show();
+    //  $('.teamList').hide();
+     // $('.matchList').show();
       search();
   });
   $('#back').click(function(){
-      $('.matchList').hide();
-        $('.teamList').show();
+     // $('.matchList').hide();
+     //   $('.teamList').show();
 
   });
 });
