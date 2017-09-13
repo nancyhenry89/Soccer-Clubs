@@ -84,11 +84,12 @@ function changeVidId(){
 
 
 $(document).ready(function(){
+
   $('#currentTeam').text(sessionStorage.getItem('currentTeam'));
 
     $('.teamList a').click(function(){
+
       sessionStorage.setItem('currentTeam', $(this).text());
-     // window.location.href = './matchList.html';
   });
     search();
 
