@@ -11,7 +11,6 @@ function search() {
 	console.log('Search Started');
   var apiKey = 'AIzaSyCr7L91URLBfmHfXeUiKPnUbmL0s9gikSY';
 	var q = 'European Soccer '+sessionStorage.getItem('currentTeam');
-	$('#currentTeam').text(q)
     gapi.client.setApiKey(apiKey);
     gapi.client.load('youtube', 'v3', function() {
         isLoad = true;
@@ -82,15 +81,9 @@ function changeVidId(){
 
 
 $(document).ready(function(){
+  $('#currentTeam').text(sessionStorage.getItem('currentTeam'))
+  search();
   $('.teamList a').click(function(){
       sessionStorage.setItem('currentTeam', $(this).text());
-    //  $('.teamList').hide();
-     // $('.matchList').show();
-      search();
-  });
-  $('#back').click(function(){
-     // $('.matchList').hide();
-     //   $('.teamList').show();
-
   });
 });
