@@ -4,12 +4,12 @@ function handleAPILoaded() {
   $('#search-button').attr('disabled', false);
 }
 /*function setCurrentTeam(){
-  sessionStorage.setItem('currentTeam', $(this).text());
+  localStorage.setItem('currentTeam', $(this).text());
 }*/
 function search() {
 
   var apiKey = 'AIzaSyCr7L91URLBfmHfXeUiKPnUbmL0s9gikSY';
-	var q = 'Soccer '+sessionStorage.getItem('currentTeam');
+	var q = 'Soccer '+localStorage.getItem('currentTeam');
     gapi.client.setApiKey(apiKey);
 
     gapi.client.load('youtube', 'v3', function() {
@@ -26,7 +26,7 @@ function search() {
 
   request.execute(function(response) {
     var str = response.result;
-    sessionStorage.setItem('result', JSON.stringify(str.items));
+    localStorage.setItem('result', JSON.stringify(str.items));
     //   window.location.href = './matchList.html';
   });
     }); 	
@@ -35,7 +35,7 @@ function search() {
 } 
 
 function changeVidId(){
-  $('#player').attr('src','https://www.youtube.com/embed/'+sessionStorage.getItem('currentVid'))
+  $('#player').attr('src','https://www.youtube.com/embed/'+localStorage.getItem('currentVid'))
 }
 
   // 2. This code loads the IFrame Player API code asynchronously.
@@ -48,7 +48,7 @@ function changeVidId(){
       //    after the API code downloads.
       var player;
       function onYouTubeIframeAPIReady() {
-        currentVid=sessionStorage.getItem('currentVid');
+        currentVid=localStorage.getItem('currentVid');
         player = new YT.Player('player', {
           height: '390',
           width: '640',
@@ -81,19 +81,19 @@ function changeVidId(){
 
 
 $(document).ready(function(){
-  var result=JSON.parse(sessionStorage.getItem('result'));
-  sessionStorage.setItem('currentVid', result[0].id.videoId);
+  var result=JSON.parse(localStorage.getItem('result'));
+  localStorage.setItem('currentVid', result[0].id.videoId);
         changeVidId();
      for (i=0;i<result.length;i++){
        $('#list').append("<div id='"+result[i].id.videoId+"' class='vidItem'><img src='"+result[i].snippet.thumbnails.default.url+"' /><span>"+result[i].snippet.title+"<span></div>")
     }
 $("#list div").click(function(){
-    sessionStorage.setItem('currentVid', $(this).attr('id'));
+    localStorage.setItem('currentVid', $(this).attr('id'));
       changeVidId();
 });
-  $('#currentTeam').text(sessionStorage.getItem('currentTeam'));
+  $('#currentTeam').text(localStorage.getItem('currentTeam'));
     $('.teamList a').click(function(){
-      sessionStorage.setItem('currentTeam', $(this).text());
+      localStorage.setItem('currentTeam', $(this).text());
        search();   
   });
    
