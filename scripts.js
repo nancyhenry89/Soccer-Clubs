@@ -3,9 +3,7 @@
 function handleAPILoaded() {
   $('#search-button').attr('disabled', false);
 }
-/*function setCurrentTeam(){
-  localStorage.setItem('currentTeam', $(this).text());
-}*/
+
 function search() {
 
   var apiKey = 'AIzaSyCr7L91URLBfmHfXeUiKPnUbmL0s9gikSY';
@@ -26,7 +24,7 @@ function search() {
 
   request.execute(function(response) {
     var str = response.result;
-    localStorage.setItem('result', JSON.stringify(str.items));
+    document.cookie = ('result', JSON.stringify(str.items));
     //   window.location.href = './matchList.html';
   });
     }); 	
@@ -81,7 +79,7 @@ function changeVidId(){
 
 
 $(document).ready(function(){
-  var result=JSON.parse(localStorage.getItem('result'));
+  var result=JSON.parse(document.cookie);
   localStorage.setItem('currentVid', result[0].id.videoId);
         changeVidId();
      for (i=0;i<result.length;i++){
