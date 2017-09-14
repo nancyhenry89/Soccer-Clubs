@@ -85,12 +85,11 @@ function changeVidId(){
 
 
 $(document).ready(function(){
-       search();   
 
   $('#currentTeam').text(sessionStorage.getItem('currentTeam'));
-
     $('.teamList a').click(function(){
       sessionStorage.setItem('currentTeam', $(this).text());
+       search();   
   });
    
 
