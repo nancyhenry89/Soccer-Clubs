@@ -6,7 +6,7 @@ function handleAPILoaded() {
 
 function search() {
 
-  var apiKey = 'AIzaSyCr7L91URLBfmHfXeUiKPnUbmL0s9gikSY';
+  var apiKey = 'AIzaSyACSKHSX_3Chjy4Praytbh_0e2Fjz9UBi8';
 	var q = 'Soccer '+Cookies.get('currentTeam');
   gapi.load(function(){
  //gapi.client.setApiKey(apiKey);
