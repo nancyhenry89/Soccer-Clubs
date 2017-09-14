@@ -1,9 +1,8 @@
 .bg{
     background: url(img/back.jpg);
-    background-repeat: no-repeat;
+    /* background-repeat: no-repeat; */
     background-size: cover;
     background-position: center;
-    /* height: 100%; */
     padding: 15px;
 }
 
@@ -19,9 +18,9 @@ html {
 }
 
 .matchList {
-    color: red;
+    color: #6b6b6b;
     padding: 20px;
-    text-align: center
+    text-align: center;
 }
 
 h1 {
@@ -49,4 +48,16 @@ a#back {
 
 a#back:hover {
     color: #ffa800;
+}
+.vidItem {
+    height: 140px;
+    cursor: pointer;
+}
+
+.vidItem img {
+    display: block;
+}
+
+div#list {
+    text-align: left;
 }

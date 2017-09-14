@@ -86,9 +86,12 @@ function changeVidId(){
 $(document).ready(function(){
   var result=JSON.parse(sessionStorage.getItem('result'));
      for (i=0;i<result.length;i++){
-       $('#list').append("<div class='vidItem'><img src='"+result[i].snippet.thumbnails.default.url+"' /><span>"+result[i].snippet.title+"<span></div>")
+       $('#list').append("<div id='"+result[i].id.videoId+"' class='vidItem'><img src='"+result[i].snippet.thumbnails.default.url+"' /><span>"+result[i].snippet.title+"<span></div>")
     }
-
+$("#list div").click(function(){
+    sessionStorage.setItem('currentVid', $(this).attr(id));
+      changeVidId();
+});
   $('#currentTeam').text(sessionStorage.getItem('currentTeam'));
     $('.teamList a').click(function(){
       sessionStorage.setItem('currentTeam', $(this).text());
