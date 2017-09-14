@@ -24,7 +24,7 @@ function search() {
 
   request.execute(function(response) {
     var str = response.result;
-    document.cookie = ('result', JSON.stringify(str.items));
+    document.cookie = "result="+JSON.stringify(str.items);
     //   window.location.href = './matchList.html';
   });
     }); 	
