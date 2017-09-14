@@ -9,7 +9,7 @@ function search() {
   var apiKey = 'AIzaSyByr5hSWx-A9-Lai0SzDwqD6wavgF3xzgU';
 	var q = 'Soccer '+Cookies.get('currentTeam');
   gapi.load(function(){
- //gapi.client.setApiKey(apiKey);
+ gapi.client.setApiKey(apiKey);
   })
    
 
