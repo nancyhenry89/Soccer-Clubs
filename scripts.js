@@ -91,7 +91,9 @@ $("#list div").click(function(){
 });
   $('#currentTeam').text(localStorage.getItem('currentTeam'));
     $('.teamList a').click(function(){
-      localStorage.setItem('currentTeam', $(this).text());
+        Cookies.set('currentTeam',  $(this).text());
+         window.location.href = './matchList.html';
+
        search();   
   });
    
