@@ -35,7 +35,10 @@ function search() {
      for (i=0;i<result.length;i++){
        $('#list').append("<div id='"+result[i].id.videoId+"' class='vidItem'><img src='"+result[i].snippet.thumbnails.default.url+"' /><span>"+result[i].snippet.title+"<span></div>")
     }
-
+$("#list div").click(function(){
+   // localStorage.setItem('currentVid', $(this).attr('id'));
+      changeVidId($(this).attr('id'));
+});
   });
     }); 	
 
@@ -56,7 +59,7 @@ function changeVidId(id){
       //    after the API code downloads.
       var player;
       function onYouTubeIframeAPIReady() {
-        
+        search();
         currentVid=localStorage.getItem('currentVid');
         player = new YT.Player('player', {
           height: '390',
@@ -94,10 +97,7 @@ $(document).ready(function(){
  // var team=Cookies.get('currentTeam');
 
 
-$("#list div").click(function(){
-   // localStorage.setItem('currentVid', $(this).attr('id'));
-      changeVidId($(this).attr('id'));
-});
+
 
     $('.teamList a').click(function(){
           Cookies.set('currentTeam',  $(this).text());
