@@ -3,7 +3,7 @@
 function handleAPILoaded() {
   $('#search-button').attr('disabled', false);
 }
-
+var str;
 function search() {
 
   var apiKey = 'AIzaSyByr5hSWx-A9-Lai0SzDwqD6wavgF3xzgU';
@@ -27,8 +27,8 @@ function search() {
     
 
   request.execute(function(response) {
-    var str = response.result;
-    changeVidId()
+     str = response.result;
+ //   changeVidId()
     //Cookies.set('result', JSON.stringify(str.items));
     //   window.location.href = './matchList.html';
   });
@@ -37,10 +37,10 @@ function search() {
 
 } 
 
-function changeVidId(){
-  $('#player').attr('src','https://www.youtube.com/embed/'+localStorage.getItem('currentVid'))
+function changeVidId(id){
+  $('#player').attr('src','https://www.youtube.com/embed/'+id)
 }
-
+  
   // 2. This code loads the IFrame Player API code asynchronously.
       var tag = document.createElement('script');
 
@@ -51,7 +51,7 @@ function changeVidId(){
       //    after the API code downloads.
       var player;
       function onYouTubeIframeAPIReady() {
-        search();
+        
         currentVid=localStorage.getItem('currentVid');
         player = new YT.Player('player', {
           height: '390',
@@ -86,17 +86,17 @@ function changeVidId(){
 
 $(document).ready(function(){
    
- /* var team=Cookies.get('currentTeam');
+ // var team=Cookies.get('currentTeam');
 
- //var result=Cookies.get('currentTeam');
-  localStorage.setItem('currentVid', result[0].id.videoId);
-        changeVidId();
+  var result=str.items;
+ // localStorage.setItem('currentVid', result[0].id.videoId);
+        changeVidId(result[0].id.videoId);
      for (i=0;i<result.length;i++){
        $('#list').append("<div id='"+result[i].id.videoId+"' class='vidItem'><img src='"+result[i].snippet.thumbnails.default.url+"' /><span>"+result[i].snippet.title+"<span></div>")
-    }*/
+    }
 $("#list div").click(function(){
-    localStorage.setItem('currentVid', $(this).attr('id'));
-      changeVidId();
+   // localStorage.setItem('currentVid', $(this).attr('id'));
+      changeVidId($(this).attr('id'));
 });
   $('#currentTeam').text(localStorage.getItem('currentTeam'));
     $('.teamList a').click(function(){
