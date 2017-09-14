@@ -11,10 +11,9 @@ function search() {
   var apiKey = 'AIzaSyCr7L91URLBfmHfXeUiKPnUbmL0s9gikSY';
 	var q = 'Soccer '+sessionStorage.getItem('currentTeam');
     gapi.client.setApiKey(apiKey);
+
     gapi.client.load('youtube', 'v3', function() {
-        isLoad = true;
-    }); 	
-    request = gapi.client.youtube.search.list({
+            request = gapi.client.youtube.search.list({
 				q: q,
         part: 'id, snippet',
         type: 'video',
@@ -34,6 +33,8 @@ function search() {
       changeVidId();
        window.location.href = './matchList.html';
   });
+    }); 	
+
 
 } 
 
