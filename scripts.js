@@ -89,7 +89,7 @@ $(document).ready(function(){
        $('#list').append("<div id='"+result[i].id.videoId+"' class='vidItem'><img src='"+result[i].snippet.thumbnails.default.url+"' /><span>"+result[i].snippet.title+"<span></div>")
     }
 $("#list div").click(function(){
-    sessionStorage.setItem('currentVid', $(this).attr(id));
+    sessionStorage.setItem('currentVid', $(this).attr('id'));
       changeVidId();
 });
   $('#currentTeam').text(sessionStorage.getItem('currentTeam'));
