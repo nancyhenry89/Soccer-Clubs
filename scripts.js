@@ -7,11 +7,11 @@ function handleAPILoaded() {
 function search() {
 
   var apiKey = 'AIzaSyCr7L91URLBfmHfXeUiKPnUbmL0s9gikSY';
-	var q = 'Soccer '+localStorage.getItem('currentTeam');
+	var q = 'Soccer '+Cookies.get('currentTeam');
     gapi.client.setApiKey(apiKey);
 
     gapi.client.load('youtube', 'v3', function() {
-            request = gapi.client.youtube.search.list({
+        request = gapi.client.youtube.search.list({
 				q: q,
         part: 'id, snippet',
         type: 'video',
@@ -24,7 +24,7 @@ function search() {
 
   request.execute(function(response) {
     var str = response.result;
-    debugger;
+    changeVidId()
     //Cookies.set('result', JSON.stringify(str.items));
     //   window.location.href = './matchList.html';
   });
@@ -96,9 +96,6 @@ $("#list div").click(function(){
   $('#currentTeam').text(localStorage.getItem('currentTeam'));
     $('.teamList a').click(function(){
           Cookies.set('currentTeam',  $(this).text());
-          window.location.href = './matchList.html';
-
-         
   });
    
 
