@@ -27,10 +27,7 @@ function search() {
   request.execute(function(response) {
     var str = response.result;
     sessionStorage.setItem('result', JSON.stringify(str.items));
-    sessionStorage.setItem('currentVid', str.items[0].id.videoId);
-
-      changeVidId();
-       window.location.href = './matchList.html';
+    //   window.location.href = './matchList.html';
   });
     }); 	
 
@@ -85,6 +82,8 @@ function changeVidId(){
 
 $(document).ready(function(){
   var result=JSON.parse(sessionStorage.getItem('result'));
+  sessionStorage.setItem('currentVid', result[0].id.videoId);
+        changeVidId();
      for (i=0;i<result.length;i++){
        $('#list').append("<div id='"+result[i].id.videoId+"' class='vidItem'><img src='"+result[i].snippet.thumbnails.default.url+"' /><span>"+result[i].snippet.title+"<span></div>")
     }
