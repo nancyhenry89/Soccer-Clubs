@@ -36,12 +36,12 @@ function search() {
        $('#list').append("<div num='"+i+"' id='"+result[i].id.videoId+"' class='vidItem'><img src='"+result[i].snippet.thumbnails.default.url+"' /><span>"+result[i].snippet.title+"<span></div>")
     }
     $('#prev').click(function(){
-      var prev=result[parseInt($(this).attr('num')-1)].id.videoId;
-      changeVidId(prev,parseInt($(this).attr('num')-1));
+      var prev=result[parseInt($('#player').attr('num')-1)].id.videoId;
+      changeVidId(prev,parseInt($('#player').attr('num')-1));
     });
         $('#next').click(function(){
-      var next=result[parseInt($(this).attr('num')+1)].id.videoId;
-      changeVidId(next,parseInt($(this).attr('num')+1));
+      var next=result[parseInt($('#player').attr('num')+1)].id.videoId;
+      changeVidId(next,parseInt($('#player').attr('num')+1));
     });
 $("#list div").click(function(){
    // localStorage.setItem('currentVid', $(this).attr('id'));
