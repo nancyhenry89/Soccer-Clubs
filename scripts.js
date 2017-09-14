@@ -50,6 +50,7 @@ function changeVidId(){
       //    after the API code downloads.
       var player;
       function onYouTubeIframeAPIReady() {
+        search();
         currentVid=localStorage.getItem('currentVid');
         player = new YT.Player('player', {
           height: '390',
