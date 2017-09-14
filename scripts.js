@@ -30,14 +30,22 @@ function search() {
      str = response.result;
   var result=str.items;
  // localStorage.setItem('currentVid', result[0].id.videoId);
-        changeVidId(result[0].id.videoId);
+        changeVidId(result[0].id.videoId,0);
           $('#currentTeam').text(Cookies.get('currentTeam'));
      for (i=0;i<result.length;i++){
-       $('#list').append("<div id='"+result[i].id.videoId+"' class='vidItem'><img src='"+result[i].snippet.thumbnails.default.url+"' /><span>"+result[i].snippet.title+"<span></div>")
+       $('#list').append("<div num='"+i+"' id='"+result[i].id.videoId+"' class='vidItem'><img src='"+result[i].snippet.thumbnails.default.url+"' /><span>"+result[i].snippet.title+"<span></div>")
     }
+    $('#prev').click(function(){
+      var prev=result[parseInt($(this).attr('num')-1)].id.videoId;
+      changeVidId(prev,parseInt($(this).attr('num')-1));
+    });
+        $('#next').click(function(){
+      var next=result[parseInt($(this).attr('num')+1)].id.videoId;
+      changeVidId(next,parseInt($(this).attr('num')+1));
+    });
 $("#list div").click(function(){
    // localStorage.setItem('currentVid', $(this).attr('id'));
-      changeVidId($(this).attr('id'));
+      changeVidId($(this).attr('id'),parseInt($(this).attr('num')));
 });
   });
     }); 	
@@ -45,8 +53,9 @@ $("#list div").click(function(){
 
 } 
 
-function changeVidId(id){
+function changeVidId(id,i){
   $('#player').attr('src','https://www.youtube.com/embed/'+id)
+  $('#player').attr('num',i)
 }
   
   // 2. This code loads the IFrame Player API code asynchronously.
