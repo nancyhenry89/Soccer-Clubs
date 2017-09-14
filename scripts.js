@@ -24,7 +24,8 @@ function search() {
 
   request.execute(function(response) {
     var str = response.result;
-    Cookies.set('result', JSON.stringify(str.items));
+    debugger;
+    //Cookies.set('result', JSON.stringify(str.items));
     //   window.location.href = './matchList.html';
   });
     }); 	
@@ -79,22 +80,25 @@ function changeVidId(){
 
 
 $(document).ready(function(){
- /* var result=JSON.parse(document.cookie);
+   
+  var team=Cookies.get('currentTeam');
+  search();
+ //var result=Cookies.get('currentTeam');
   localStorage.setItem('currentVid', result[0].id.videoId);
         changeVidId();
      for (i=0;i<result.length;i++){
        $('#list').append("<div id='"+result[i].id.videoId+"' class='vidItem'><img src='"+result[i].snippet.thumbnails.default.url+"' /><span>"+result[i].snippet.title+"<span></div>")
-    }*/
+    }
 $("#list div").click(function(){
     localStorage.setItem('currentVid', $(this).attr('id'));
       changeVidId();
 });
   $('#currentTeam').text(localStorage.getItem('currentTeam'));
     $('.teamList a').click(function(){
-        Cookies.set('currentTeam',  $(this).text());
-         window.location.href = './matchList.html';
+          Cookies.set('currentTeam',  $(this).text());
+          window.location.href = './matchList.html';
 
-       search();   
+         
   });
    
 
