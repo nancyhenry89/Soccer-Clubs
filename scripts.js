@@ -28,9 +28,9 @@ function search() {
     var str = response.result;
     sessionStorage.setItem('result', JSON.stringify(str.items));
     sessionStorage.setItem('currentVid', str.items[0].id.videoId);
-    for (i=0;i<str.items.length;i++){
+   /* for (i=0;i<str.items.length;i++){
        sessionStorage.setItem('videoID'+i, str.items[i].id.videoId);
-    }
+    }*/
       changeVidId();
        window.location.href = './matchList.html';
   });
@@ -86,6 +86,8 @@ function changeVidId(){
 
 
 $(document).ready(function(){
+  var result=JSON.parse(sessionStorage.getItem('result'));
+  console.log(result)
 
   $('#currentTeam').text(sessionStorage.getItem('currentTeam'));
     $('.teamList a').click(function(){
