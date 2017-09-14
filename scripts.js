@@ -8,7 +8,6 @@ function handleAPILoaded() {
 }*/
 function search() {
 
-	console.log('Search Started');
   var apiKey = 'AIzaSyCr7L91URLBfmHfXeUiKPnUbmL0s9gikSY';
 	var q = 'Soccer '+sessionStorage.getItem('currentTeam');
     gapi.client.setApiKey(apiKey);
