@@ -82,7 +82,7 @@ function changeVidId(){
 $(document).ready(function(){
    
   var team=Cookies.get('currentTeam');
-  search();
+
  //var result=Cookies.get('currentTeam');
   localStorage.setItem('currentVid', result[0].id.videoId);
         changeVidId();
