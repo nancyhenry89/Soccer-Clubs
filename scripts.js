@@ -35,7 +35,7 @@ function search() {
           $('#currentTeam').text(Cookies.get('currentTeam'));
      for (i=0;i<result.length;i++){
        $('#list').append("<div num='"+i+"' id='"+result[i].id.videoId+"' class='vidItem'><span class='count'>View Count: </span><img src='"+result[i].snippet.thumbnails.default.url+"' /><span>"+result[i].snippet.title+"<span></div>")
-       if(i==10){
+       if(i==9){
          
          $('.vidItem').each(function(){
            var that=$(this)
