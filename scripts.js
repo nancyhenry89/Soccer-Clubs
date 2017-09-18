@@ -53,7 +53,7 @@ $("#list div").click(function(){
       changeVidId($(this).attr('id'),parseInt($(this).attr('num')));
 });
 $('.vidItem').each(function(){
-   $.getJSON('https://www.googleapis.com/youtube/v3/videos?part=statistics&id='+$(this).attr('id')+'key=AIzaSyByr5hSWx-A9-Lai0SzDwqD6wavgF3xzgU', function(data) {
+   $.getJSON('https://www.googleapis.com/youtube/v3/videos?part=statistics&id='+$(this).attr('id')+'&key=AIzaSyByr5hSWx-A9-Lai0SzDwqD6wavgF3xzgU', function(data) {
      $(this).children('count').append("<span>"+data.items[0].statistics.viewCount+"</span>")
    // alert("view Count: " + data.items[0].statistics.viewCount);
   });

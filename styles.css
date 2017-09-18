@@ -55,7 +55,7 @@ a#back:hover {
 }
 
 .vidItem img {
-    display: block;
+    display: inline-block;
 }
 
 div#list {
@@ -77,4 +77,13 @@ a#next {
 
 .matchList.container.main {
     position: relative;
+}
+span {
+    display: block;
+}
+
+span.count {
+    display: inline-block;
+    margin-left: 20px;
+    color: #e49600;
 }
