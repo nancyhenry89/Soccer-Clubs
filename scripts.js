@@ -17,7 +17,7 @@ function search() {
     gapi.client.load('youtube', 'v3', function() {
         request = gapi.client.youtube.search.list({
 				q: q,
-        part: 'id, snippet',
+        part: 'id, snippet,statistics',
         type: 'video',
         order: 'date',
         maxResults:	'10',
@@ -34,10 +34,7 @@ function search() {
         changeVidId(result[0].id.videoId,0);
           $('#currentTeam').text(Cookies.get('currentTeam'));
      for (i=0;i<result.length;i++){
-       $.getJSON('https://www.googleapis.com/youtube/v3/videos?part=statistics&id='+result[i].id.videoId+'key=AIzaSyByr5hSWx-A9-Lai0SzDwqD6wavgF3xzgU', function(data) {
-        count=data.items[0].statistics.viewCount;
-  })
-       $('#list').append("<div num='"+i+"' id='"+result[i].id.videoId+"' class='vidItem'><span class='count'>View Count: <b>"+count+"</b>=</span><img src='"+result[i].snippet.thumbnails.default.url+"' /><span>"+result[i].snippet.title+"<span></div>")
+       $('#list').append("<div num='"+i+"' id='"+result[i].id.videoId+"' class='vidItem'><span class='count'>View Count: <b>"+result[i].statistics.viewCount+"</b></span><img src='"+result[i].snippet.thumbnails.default.url+"' /><span>"+result[i].snippet.title+"<span></div>")
     }
     $('#prev').click(function(){
       if(parseInt($('#player').attr('num'))!=0){
