@@ -34,8 +34,8 @@ function search() {
         changeVidId(result[0].id.videoId,0);
           $('#currentTeam').text(Cookies.get('currentTeam'));
      for (i=0;i<result.length;i++){
-       $('#list').append("<div num='"+i+"' id='"+result[i].id.videoId+"' class='vidItem'><span class='count'>View Count: <b>"+count+"</b>=</span><img src='"+result[i].snippet.thumbnails.default.url+"' /><span>"+result[i].snippet.title+"<span></div>")
-       if(i==9){
+       $('#list').append("<div num='"+i+"' id='"+result[i].id.videoId+"' class='vidItem'><span class='count'>View Count: </span><img src='"+result[i].snippet.thumbnails.default.url+"' /><span>"+result[i].snippet.title+"<span></div>")
+       if(i==10){
          $('.vidItem').each(function(){
    $.getJSON('https://www.googleapis.com/youtube/v3/videos?part=statistics&id='+$(this).attr('id')+'&key=AIzaSyByr5hSWx-A9-Lai0SzDwqD6wavgF3xzgU', function(data) {
      $(this).children('span.count').append("<span>"+data.items[0].statistics.viewCount+"</span>")
