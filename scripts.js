@@ -33,7 +33,10 @@ function search() {
         changeVidId(result[0].id.videoId,0);
           $('#currentTeam').text(Cookies.get('currentTeam'));
      for (i=0;i<result.length;i++){
-       $('#list').append("<div num='"+i+"' id='"+result[i].id.videoId+"' class='vidItem'><img src='"+result[i].snippet.thumbnails.default.url+"' /><span>"+result[i].snippet.title+"<span></div>")
+       $.getJSON('https://www.googleapis.com/youtube/v3/videos?part=statistics&id='+result[i].id.videoId+'key=AIzaSyByr5hSWx-A9-Lai0SzDwqD6wavgF3xzgU', function(data) {
+        var count=data.items[0].statistics.viewCount;
+  })
+       $('#list').append("<div num='"+i+"' id='"+result[i].id.videoId+"' class='vidItem'><span class='count'>View Count: <b>"+count+"</b>=</span><img src='"+result[i].snippet.thumbnails.default.url+"' /><span>"+result[i].snippet.title+"<span></div>")
     }
     $('#prev').click(function(){
       if(parseInt($('#player').attr('num'))!=0){
@@ -60,6 +63,9 @@ $("#list div").click(function(){
 function changeVidId(id,i){
   $('#player').attr('src','https://www.youtube.com/embed/'+id)
   $('#player').attr('num',i)
+  /* $.getJSON('https://www.googleapis.com/youtube/v3/videos?part=statistics&id='+id+'key=AIzaSyByr5hSWx-A9-Lai0SzDwqD6wavgF3xzgU', function(data) {
+    alert("view Count: " + data.items[0].statistics.viewCount);
+  });*/
 }
   
   // 2. This code loads the IFrame Player API code asynchronously.
