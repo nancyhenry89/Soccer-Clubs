@@ -34,7 +34,10 @@ function search() {
         changeVidId(result[0].id.videoId,0);
           $('#currentTeam').text(Cookies.get('currentTeam'));
      for (i=0;i<result.length;i++){
-       $('#list').append("<div num='"+i+"' id='"+result[i].id.videoId+"' class='vidItem'><img src='"+result[i].snippet.thumbnails.default.url+"' /><span><span class='count'>View Count: </span>"+result[i].snippet.title+"<span></div>")
+       $.getJSON('https://www.googleapis.com/youtube/v3/videos?part=statistics&id='+result[i].id.videoId+'&key=AIzaSyByr5hSWx-A9-Lai0SzDwqD6wavgF3xzgU', function(data) {
+        var count=data.items[0].statistics.viewCount;
+  })
+       $('#list').append("<div num='"+i+"' id='"+result[i].id.videoId+"' class='vidItem'><span class='count'>View Count: <b>"+count+"</b>=</span><img src='"+result[i].snippet.thumbnails.default.url+"' /><span>"+result[i].snippet.title+"<span></div>")
     }
     $('#prev').click(function(){
       if(parseInt($('#player').attr('num'))!=0){
@@ -52,12 +55,7 @@ $("#list div").click(function(){
    // localStorage.setItem('currentVid', $(this).attr('id'));
       changeVidId($(this).attr('id'),parseInt($(this).attr('num')));
 });
-$('.vidItem').each(function(){
-   $.getJSON('https://www.googleapis.com/youtube/v3/videos?part=statistics&id='+$(this).attr('id')+'&key=AIzaSyByr5hSWx-A9-Lai0SzDwqD6wavgF3xzgU', function(data) {
-     $(this).children('span.count').append("<span>"+data.items[0].statistics.viewCount+"</span>")
-   // alert("view Count: " + data.items[0].statistics.viewCount);
-  });
-});
+
 
   });
     }); 	
