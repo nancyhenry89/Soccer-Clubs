@@ -17,7 +17,7 @@ function search() {
     gapi.client.load('youtube', 'v3', function() {
         request = gapi.client.youtube.search.list({
 				q: q,
-        part: 'id, snippet,statistics',
+        part: 'id, snippet',
         type: 'video',
         order: 'date',
         maxResults:	'10',
@@ -34,7 +34,7 @@ function search() {
         changeVidId(result[0].id.videoId,0);
           $('#currentTeam').text(Cookies.get('currentTeam'));
      for (i=0;i<result.length;i++){
-       $('#list').append("<div num='"+i+"' id='"+result[i].id.videoId+"' class='vidItem'><span class='count'>View Count: <b>"+result[i].statistics.viewCount+"</b></span><img src='"+result[i].snippet.thumbnails.default.url+"' /><span>"+result[i].snippet.title+"<span></div>")
+       $('#list').append("<div num='"+i+"' id='"+result[i].id.videoId+"' class='vidItem'><span class='count'>View Count: </span><img src='"+result[i].snippet.thumbnails.default.url+"' /><span>"+result[i].snippet.title+"<span></div>")
     }
     $('#prev').click(function(){
       if(parseInt($('#player').attr('num'))!=0){
@@ -52,6 +52,13 @@ $("#list div").click(function(){
    // localStorage.setItem('currentVid', $(this).attr('id'));
       changeVidId($(this).attr('id'),parseInt($(this).attr('num')));
 });
+$('.vidItem').each(function(){
+   $.getJSON('https://www.googleapis.com/youtube/v3/videos?part=statistics&id='+$(this).attr('id')+'key=AIzaSyByr5hSWx-A9-Lai0SzDwqD6wavgF3xzgU', function(data) {
+     $(this).children('count').append("<span>"+data.items[0].statistics.viewCount+"</span>")
+   // alert("view Count: " + data.items[0].statistics.viewCount);
+  });
+});
+
   });
     }); 	
 
@@ -61,9 +68,7 @@ $("#list div").click(function(){
 function changeVidId(id,i){
   $('#player').attr('src','https://www.youtube.com/embed/'+id)
   $('#player').attr('num',i)
-  /* $.getJSON('https://www.googleapis.com/youtube/v3/videos?part=statistics&id='+id+'key=AIzaSyByr5hSWx-A9-Lai0SzDwqD6wavgF3xzgU', function(data) {
-    alert("view Count: " + data.items[0].statistics.viewCount);
-  });*/
+
 }
   
   // 2. This code loads the IFrame Player API code asynchronously.
