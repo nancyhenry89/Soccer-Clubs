@@ -34,7 +34,7 @@ function search() {
         changeVidId(result[0].id.videoId,0);
           $('#currentTeam').text(Cookies.get('currentTeam'));
      for (i=0;i<result.length;i++){
-       $('#list').append("<div num='"+i+"' id='"+result[i].id.videoId+"' class='vidItem'><span class='count'>View Count: </span><img src='"+result[i].snippet.thumbnails.default.url+"' /><span>"+result[i].snippet.title+"<span></div>")
+       $('#list').append("<div num='"+i+"' id='"+result[i].id.videoId+"' class='vidItem'><img src='"+result[i].snippet.thumbnails.default.url+"' /><span class='count'>View Count: </span><div>"+result[i].snippet.title+"<div></div>")
        if(i==9){
          
          $('.vidItem').each(function(){
