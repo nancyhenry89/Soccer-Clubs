@@ -6,7 +6,7 @@ function handleAPILoaded() {
 var str;
 function search() {
 
-  var apiKey = 'AIzaSyByr5hSWx-A9-Lai0SzDwqD6wavgF3xzgU';
+  var apiKey = 'AIzaSyDysCOKKNioFwqJ-A5u4ljX_KwRvIA32lA';
 	var q = 'Soccer '+Cookies.get('currentTeam');
    gapi.client.setApiKey(apiKey);
 
@@ -39,7 +39,7 @@ function search() {
          
          $('.vidItem').each(function(){
            var that=$(this)
-   $.getJSON('https://www.googleapis.com/youtube/v3/videos?part=statistics&id='+$(this).attr('id')+'&key=AIzaSyByr5hSWx-A9-Lai0SzDwqD6wavgF3xzgU', function(data) {
+   $.getJSON('https://www.googleapis.com/youtube/v3/videos?part=statistics&id='+$(this).attr('id')+'&key=AIzaSyDysCOKKNioFwqJ-A5u4ljX_KwRvIA32lA', function(data) {
      that.children('span.count').append("<span>"+data.items[0].statistics.viewCount+"</span>")
    // alert("view Count: " + data.items[0].statistics.viewCount);
   });
